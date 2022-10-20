@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.awt.FlowLayout;
 
 /**
  * Esta clase es el CONTROLADOR-VISTA del juego.<br/><br/>
@@ -15,8 +13,10 @@ import java.awt.FlowLayout;
  * @version 1.0 (15-05-2014)
  */
 public class Tablero extends JPanel implements ActionListener{
-    
-    // Variable del tipo Timer.
+
+	private static final long serialVersionUID = 1L;
+
+	// Variable del tipo Timer.
     private Timer timer;
     
     // Creo una variable de la clase Pacman
@@ -1008,6 +1008,3 @@ public class Tablero extends JPanel implements ActionListener{
        timer.stop();
     }
 }
-
-
-
