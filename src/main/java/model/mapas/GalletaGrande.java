@@ -1,7 +1,5 @@
 package model.mapas;
-import java.awt.Image;
 import javax.swing.ImageIcon;
-import java.awt.Rectangle;
 
 /**
  * Clase modelo de las galletas grandes, que hereda de la superclase Galleta.
