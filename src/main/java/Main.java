@@ -6,7 +6,7 @@ import vista.MainFrame;
  * @author Rubén Lastres Villar
  * @version 1.0 (15-05-2014)
  */
-public class Inicio{
+public class Main{
     
     public static void main (String[] args){
         new MainFrame();
