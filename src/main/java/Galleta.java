@@ -1,17 +1,14 @@
 import java.awt.Image;
-import javax.swing.ImageIcon;
 import java.awt.Rectangle;
 
 /**
- * Superclase abstracta de las clases GalletaPequena y GalletaGrande.<br/><br/>
+ * Superclase abstracta de las clases GalletaPequena y GalletaGrande.
  * Define todos los campos y métodos comunes de esas dos subclases.
  * 
  * @author Rubén Lastres Villar
  * @version 1.0 (15-05-2014)
  */
-public abstract class Galleta
-{
-    
+public abstract class Galleta{  
     /** Ruta donde se encuentra la imagen de la galleta */
     protected String ruta;
     
@@ -41,13 +38,10 @@ public abstract class Galleta
      * donde debe ser creada.
      * @param int Dos enteros con las coordenadas X e Y donde debe de ser creada la galleta.
      */
-    public Galleta(int x, int y)
-    {
-       
+    public Galleta(int x, int y){
         // Se asigna la posición de la galleta.
         this.x = x;
-        this.y = y;
-        
+        this.y = y;   
     }
     
     /**
@@ -56,7 +50,7 @@ public abstract class Galleta
      */
     public Image getImage(){
        return imagen;
-     }
+    }
     
      /**
       * Devuelve la coordenada X donde está situada la galleta.
@@ -106,4 +100,3 @@ public abstract class Galleta
         return puntos;
     }
 }
-

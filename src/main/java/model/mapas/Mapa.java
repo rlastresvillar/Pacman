@@ -1,13 +1,12 @@
-import java.util.ArrayList;
-
+package model.mapas;
 /**
- * Define una matriz de enteros que representa un mapa que sirve de base para el juego de Pacman<br/>
+ * Define una matriz de enteros que representa un mapa que sirve de base para el juego de Pacman
  * Cada elemento de la matriz es una casilla del mapa. 
  * @author Rubén Lastres Villar
  * @version 1.0 (15-05-2014)
  */
 public class Mapa{
-    //Matriz que representa el mapa del juego.
+    // Matriz que representa el mapa del juego.
     private int matriz[][] = {
                         {9,2,2,2,2,2,2,2,2,10,13,13,13,0,34,1,13,13,13,9,2,2,2,2,30,31,2,2,2,2,10},
                         {0,14,14,15,14,14,14,14,14,1,13,13,13,0,13,1,13,13,13,0,14,14,14,15,8,19,14,14,14,14,1},
@@ -38,15 +37,13 @@ public class Mapa{
                         {0,14,14,15,14,14,14,14,14,1,13,13,13,0,13,1,13,13,13,0,14,14,14,15,8,19,14,14,14,14,1},
                         {11,3,3,3,3,3,3,3,3,12,13,13,13,0,33,1,13,13,13,11,3,3,3,3,28,29,3,3,3,3,12}};
 
-    // Constante que establece el ancho de cada una de las celdas de la matriz.
     private static final int ANCHO_CELDA = 21;
-    // Constante que establece el alto de cada una de las celdas de la matriz.
     private static final int ALTO_CELDA = 21;
-    
-    
-    public Mapa(){
-        
-    }
+     
+    /**
+     * Constructor vacío.
+     */
+    public Mapa(){}
     
     /**
      * Método que devuelve el número de filas de la matriz.
@@ -97,6 +94,5 @@ public class Mapa{
      */
     public int getPosInicial(){
         return 32;
-    }
-    
+    }   
 }

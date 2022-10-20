@@ -1,10 +1,16 @@
+package vista;
 import javax.swing.*;
 
+import Galleta;
+import GalletaGrande;
+import GalletaPequena;
+import Puntuacion;
 import model.entities.Blinky;
 import model.entities.Clyde;
 import model.entities.Fantasma;
 import model.entities.Pacman;
 import model.entities.Pinky;
+import model.mapas.Mapa;
 
 import java.awt.*;
 import java.awt.event.ActionListener;

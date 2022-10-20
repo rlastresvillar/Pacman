@@ -3,7 +3,6 @@ package vista;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-
 import javax.swing.JFrame;
 
 /**
@@ -28,5 +27,7 @@ public class MainFrame extends JFrame{
         this.setResizable(false);
         this.setFocusable(false);
         this.setVisible(true);
+
+        
 	}
 }

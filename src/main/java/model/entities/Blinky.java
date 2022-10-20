@@ -67,10 +67,8 @@ public class Blinky extends Fantasma implements ActionListener{
         
         int signo = random.nextInt(2);
         
-        if(x > x_pacman && y == y_pacman){
-                
+        if(x > x_pacman && y == y_pacman){    
             movimiento = "Izquierda";
-
         }
         
         else if(x > x_pacman && y < y_pacman){
@@ -156,10 +154,8 @@ public class Blinky extends Fantasma implements ActionListener{
                 vulnerable = false;
                 resucitando = false;
                 tiempo_vulnerable = 0;
-            }
-            
+            } 
         }
-        
     }
     
     /**
@@ -379,8 +375,5 @@ public class Blinky extends Fantasma implements ActionListener{
             siguiente_x = -1;
             siguiente_y = 0;
         }
-        
     }
-
-
 }
