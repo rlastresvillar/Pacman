@@ -1,3 +1,4 @@
+package model.mapas;
 import java.awt.Image;
 import java.awt.Rectangle;
 
