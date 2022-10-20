@@ -79,8 +79,7 @@ public class Tablero extends JPanel implements ActionListener{
      * Se establecen una serie de características básicas del JPanel (visibilidad, foco, tamaño, color de fondo, etc).<br/>
      * Se crean instancias de todas las clases que participarán en el juego (Pacman, fantasmas, galletas, mapa, puntuación...)
      */
-    public Tablero(){
-        
+    public Tablero(){     
         // Se establece doble buffer para el JPanel
         setDoubleBuffered(true);
         
@@ -133,8 +132,7 @@ public class Tablero extends JPanel implements ActionListener{
         timer = new Timer(4,this);
         
         // ArrayList que guardará las galletas activas que deben pintarse en el mapa.
-        galletas_activas = new ArrayList<Galleta>();
-         
+        galletas_activas = new ArrayList<Galleta>();       
     }
     
     /**
@@ -161,10 +159,7 @@ public class Tablero extends JPanel implements ActionListener{
             pantalla_inicial = ii.getImage();
             g2d.drawImage(pantalla_inicial,0,0, this);
             
-        }
-        
-        else{
-        
+        } else{        
             // Se pintan las galletas que están en el ArrayList galletas_activas
             // Las que Pacman se va comiendo, son borradas del ArrayList por el método CheckColissions y no se volverán a pintar.
             for(int x = 0; x < galletas_activas.size(); x++){
@@ -183,15 +178,13 @@ public class Tablero extends JPanel implements ActionListener{
                 Fantasma fantasma = fantasmas.get(x);
                 g2d.drawImage(fantasma.getImage(),fantasma.getX(),fantasma.getY(), this);
             }
-        
         }
         
         // Para problemas de saltos en los movimientos de las imágenes.
         Toolkit.getDefaultToolkit().sync();
         
         // Indico que ya hemos pintado todo lo que teníamos que pintar.
-        g.dispose();
-        
+        g.dispose();       
     }
     
     /**
@@ -206,8 +199,7 @@ public class Tablero extends JPanel implements ActionListener{
      * <li>Se vuelve a llamar al método paint para que se repinte el tablero.</li>
      * </ul>
      */
-    public void actionPerformed(ActionEvent e){
-        
+    public void actionPerformed(ActionEvent e){        
         // Llamada al método que comprueba las colisiones entre los elementos del juego (Pacman, fantasmas, galletas, muros...)
         checkColisiones();
 
@@ -230,12 +222,9 @@ public class Tablero extends JPanel implements ActionListener{
         // Si lo ha hecho debe finalizar la partida. Llamamos al método
         // que muestra la pantalla de victoria y las opciones que se pueden escoger
         // (jugar nueva partida o salir del juego)
-        if (galletas_activas.size() == 0){
-            
-            pantallaVictoria();
-            
+        if (galletas_activas.size() == 0){  
+            pantallaVictoria();    
         }
-
     }
     
     /**
@@ -249,10 +238,8 @@ public class Tablero extends JPanel implements ActionListener{
      * Las pulsaciones de teclado para el movimiento de Pacman se delegan en la clase modelo de Pacman.
      * ESTO ES INDEPENDIENTE AL TIMER.
      */
-   private class TAdapter extends KeyAdapter{
-        
-        public void keyPressed(KeyEvent e){
-            
+   private class TAdapter extends KeyAdapter{      
+        public void keyPressed(KeyEvent e){         
             // Se crea una variable entera que guarde la última tecla pulsada en el teclado.
             int tecla = e.getKeyCode();
             
@@ -260,10 +247,8 @@ public class Tablero extends JPanel implements ActionListener{
             estadoAccion(tecla);
             
             // Delegamos en Pacman su movimiento a través del mapa.
-            pacman.keyPressed(e);
-            
-        }
-        
+            pacman.keyPressed(e);          
+        }     
     }
    
    /**
@@ -280,31 +265,23 @@ public class Tablero extends JPanel implements ActionListener{
     * @param int La última pulsación de teclado.
     */
    public void estadoAccion(int pulsacion){
-       
         //Asigno a la variable tecla la última pulsación de teclado que se ha recibido como parámetro.
         tecla = pulsacion;
 
         // Si se pulsa la tecla P, se pausa el juego (se detiene el timer).
         // Si el timer está parado (juego pausado), al pusar P el timer vuelve a correr.
         if(tecla == KeyEvent.VK_P){
-            
-            if(timer.isRunning()){
-                
+            if(timer.isRunning()){ 
                 add(puntuacion.getCartelEmpezar("Pulsa 'P' para reanudar"));
                 timer.stop();
-                
-            }
-            else{
-                
+            } else{          
                 timer.start();
-                add(puntuacion.getCartelEmpezar("Pulsa 'P' para pausar"));
-                
+                add(puntuacion.getCartelEmpezar("Pulsa 'P' para pausar"));   
             }
         }
 
         // Si el estado es 0 y pulsamos la tecla "S" es que queremos iniciar una nueva partida desde la pantalla inicial del juego.
-        if(estado == 0 && tecla == KeyEvent.VK_S){
-            
+        if(estado == 0 && tecla == KeyEvent.VK_S){  
             // Se pinta el laberinto.
             pintarLaberinto();
             
@@ -327,33 +304,26 @@ public class Tablero extends JPanel implements ActionListener{
             add(puntuacion.getLogoScore());
             
             // Se repinta el lienzo.
-            repaint();
-            
+            repaint();  
         }
 
         // En el estado 1, se ha pintado el laberinto, a pacman, los fantasmas y las galletas. Cuando se pulsa la tecla "S" el timer empieza a correr.
-        else if(estado == 1 && tecla == KeyEvent.VK_S){
-            
+        else if(estado == 1 && tecla == KeyEvent.VK_S){ 
             timer.start();
             estado = 2;
             add(puntuacion.getCartelEmpezar("Pulsa 'P' para pausar"));
-            pacman.setEstado("vivo");
-            
+            pacman.setEstado("vivo");   
         }
         
         // EN EL ESTADO 2 EL JUEGO ESTÁ CORRIENDO.
-        
         // Si Pacman ha perdido una vida se pasa al estado 3. En este estado Pacman es reubicado en su posición
         // inicial. Para poner de nuevo en marcha el timer habrá que pulsar la tecla S.
         else if(estado == 3 && tecla == KeyEvent.VK_S){
-            
             timer.start();
             estado = 2;
             add(puntuacion.getCartelEmpezar("Pulsa 'P' para pausar"));
-            pacman.setEstado("vivo");
-            
-        }
-        
+            pacman.setEstado("vivo");   
+        }     
     }
    
     
@@ -377,7 +347,6 @@ public class Tablero extends JPanel implements ActionListener{
      * </ul>
      */
     public void pintarLaberinto(){
-        
         // Obtengo el ancho y alto de la celda desde el modelo del mapa, para después poder pintarlas mediante JLabels.
         int ancho = mapa.getAnchoCelda();
         int alto = mapa.getAltoCelda();
@@ -470,12 +439,9 @@ public class Tablero extends JPanel implements ActionListener{
                      galletas_activas.add(new GalletaGrande(x*ancho + 3, y*ancho + 3));
                 }
                 
-                celda[x][y].validate();
-                
-            }
-                
+                celda[x][y].validate();           
+            }               
         }
-        
     }
     
     /** 
@@ -487,15 +453,13 @@ public class Tablero extends JPanel implements ActionListener{
      * @param int ancho. El ancho que debe tener el objeto Rectangle.
      * @param int alto. El alto que debe tener el objeto Rectangle.
      */
-    public void creaMuros(int x, int y, int ancho, int alto){
-        
+    public void creaMuros(int x, int y, int ancho, int alto){       
         // Creamos un objeto rectangle
         Rectangle r;
         r = new Rectangle(x, y, ancho, alto);
                     
         // Añado el rectángulo al arraylist de muros.
-        rectangulos_muros.add(r);
-        
+        rectangulos_muros.add(r);   
     }
     
      /** 
@@ -507,15 +471,13 @@ public class Tablero extends JPanel implements ActionListener{
      * @param int ancho. El ancho que debe tener el objeto Rectangle.
      * @param int alto. El alto que debe tener el objeto Rectangle.
      */
-    public void creaPuertas(int x, int y, int ancho, int alto){
-        
+    public void creaPuertas(int x, int y, int ancho, int alto){     
         // Creamos un objeto rectangle
         Rectangle r;
         r = new Rectangle(x, y, ancho, alto);
                     
         // Añado el rectángulo al arraylist de puertas.
-        rectangulos_puertas.add(r);
-        
+        rectangulos_puertas.add(r);  
     }
     
     /** 
@@ -526,34 +488,25 @@ public class Tablero extends JPanel implements ActionListener{
      * @param int ancho. El ancho que debe tener el objeto Rectangle.
      * @param int alto. El alto que debe tener el objeto Rectangle.
      */
-    public void creaTeleport(int contenidocelda, int x, int y, int ancho, int alto){
-        
+    public void creaTeleport(int contenidocelda, int x, int y, int ancho, int alto){    
         int celda = contenidocelda;
         
         // Se crean los rectángulos sobre las casillas de teletransporte.
         if(celda == 33){
-            
             // Creamos un objeto rectangle
             Rectangle teleport_der;
             teleport_der = new Rectangle(x, y, ancho, alto);
                     
             // Añado el rectángulo al arraylist de teletransporte.
-            rectangulos_teleport.add(teleport_der);
-            
-        }
-        
-        else if(celda == 34){
-            
+            rectangulos_teleport.add(teleport_der); 
+        }else if(celda == 34){
             // Creamos un objeto rectangle
             Rectangle teleport_izq;
             teleport_izq = new Rectangle(x, y, ancho, alto);
-            
                     
             // Añado el rectángulo al arraylist de teletransporte.
-            rectangulos_teleport.add(teleport_izq);
-            
-        }
-        
+            rectangulos_teleport.add(teleport_izq);  
+        }  
     }
     
     /**
@@ -582,7 +535,6 @@ public class Tablero extends JPanel implements ActionListener{
      * </ul>
      */
     public void checkColisiones(){
-        
         // Obtengo la coordenada X de Pacman.
         int x_pacman = pacman.getX();
         
@@ -596,7 +548,7 @@ public class Tablero extends JPanel implements ActionListener{
         // For que recorre todos los rectángulos que hemos guardado en el ArrayList de muros.
         // Es decir, contiene los muros contra los que podemos colisionar y que no podemos atravesar.
         for(int x = 0; x < rectangulos_muros.size(); x++){
-                
+        	
                 // COLISIONES DE PACMAN CONTRA LOS MUROS DEL MAPA
                 // Si Pacman ha colisionado contra un muro cuando se desplazaba hacia la izquierda
                 // la bandera izquierda se seteará como TRUE
@@ -653,10 +605,8 @@ public class Tablero extends JPanel implements ActionListener{
                     // la bandera inferior se seteará como TRUE
                     if(rectangulos_muros.get(x).contains(fantasma.getX(),fantasma.getY() + 21) || rectangulos_muros.get(x).contains(fantasma.getX() + 21 - 1,fantasma.getY() + 21)){
                         fantasma.setBanderaInf(true);
-                    }
-                    
-                }
-                
+                    }  
+                }   
         }
         
         // SEGUNDO: COMPROBAMOS SI LOS PERSONAJES HAN COLISIONADO CON UNA CASILLA DE TELETRANSPORTE(en caso de los fantasmas)
@@ -666,15 +616,12 @@ public class Tablero extends JPanel implements ActionListener{
             // Comprueba si Pacman está sobre una celda de teletransporte
             if(y == 0 && rectangulos_teleport.get(y).contains(x_pacman, y_pacman, 21, 21)){
                 pacman.setTeleportIzq(true);
-            }
-            
-            else if(y == 1 && rectangulos_teleport.get(y).contains(x_pacman, y_pacman, 21, 21)){
+            }else if(y == 1 && rectangulos_teleport.get(y).contains(x_pacman, y_pacman, 21, 21)){
                 pacman.setTeleportDer(true);
             }
             
             // Comprueba si un fantasma ha llegado a una celda de teletransporte
-            for(int i = 0; i < fantasmas.size(); i++){
-                    
+            for(int i = 0; i < fantasmas.size(); i++){    
                 Fantasma fantasma = fantasmas.get(i);
                 
                 if(y == 0 && rectangulos_teleport.get(y).contains(fantasma.getX(), fantasma.getY(), 21, 21)){
@@ -683,10 +630,8 @@ public class Tablero extends JPanel implements ActionListener{
                 
                 else if(y == 1 && rectangulos_teleport.get(y).contains(fantasma.getX(), fantasma.getY(), 21, 21)){
                     fantasma.setTeleportDer(true);
-                }
-                
-            }
-            
+                }   
+            } 
         }
         
         // TERCERO: SE COMPRUEBA SI PACMAN HA COLISIONADO CONTRA LAS PUERTAS DE LA CASA DE FANTASMAS
@@ -729,8 +674,7 @@ public class Tablero extends JPanel implements ActionListener{
             Rectangle r1 = galletas_activas.get(x).getBounds();
             int puntos = galletas_activas.get(x).getPuntos();
             
-            if(r1.intersects(bounds_pacman)){
-                
+            if(r1.intersects(bounds_pacman)){  
                 if(galletas_activas.get(x) instanceof GalletaGrande){
                     clyde.setVulnerable(true);
                     blinky.setVulnerable(true);
@@ -739,16 +683,12 @@ public class Tablero extends JPanel implements ActionListener{
                 
                 galletas_activas.remove(galletas_activas.get(x));
                 
-                puntuacion.setPuntuacion(puntos);
-                
-            }
-                        
+                puntuacion.setPuntuacion(puntos);   
+            }              
         }
-        
         
         // QUINTO: DETECCIÓN DE COLISIONES ENTRE PACMAN Y LOS FANTASMAS.
         for(int x = 0; x < fantasmas.size(); x++){
-            
             Fantasma fantasma = fantasmas.get(x);
             
             // Se obtiene el estado de vulnerabilidad del fantasma
@@ -757,9 +697,7 @@ public class Tablero extends JPanel implements ActionListener{
             // Acciones que se realizan si Pacman intersecta con un fantasma y este
             // está en modo de vulnerabilidad
             if(bounds_pacman.intersects(fantasma.getBounds())){
-                
                 if(fantasma_vulnerable){
-                    
                     // Se obtienen los puntos de la clase Fantasma...
                     int puntos = fantasma.getPuntos();
                     // Y se suman a la puntuación del juego.
@@ -775,21 +713,18 @@ public class Tablero extends JPanel implements ActionListener{
                 
                 // Si el fantasma no está en modo vulnerable:
                 else{
-                    
                     // Se piede una vida.
                     puntuacion.pierdeVida();
                     
                     // Si no quedan más vidas, la partida finaliza y se muestra un cuadro de diálogo para escoger
                     // jugar otra partida o cerrar el juego.
                     if (puntuacion.getVidas() == 0){
-                        
                        estado = 4;
                        int seleccion = JOptionPane.showOptionDialog(this,"GAME OVER" +"\n"+ "¿Que quieres hacer ahora?","Game Over",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,new Object[] 
                        {"Jugar de nuevo", "Salir"},null);
                        
                        // Si seleccionamos jugar de nuevo se realizan las siguientes acciones:
-                       if (seleccion == 0){
-                           
+                       if (seleccion == 0){ 
                             // Removemos todos los elementos del JPanel.
                             this.removeAll();
                             
@@ -812,21 +747,16 @@ public class Tablero extends JPanel implements ActionListener{
                             
                             // Reseteamos las vidas al valor inicial
                             puntuacion.setVidasReset();
-                            
                         }
                        
                        // Si seleccionamos "Salir", se cierra el juego (el JFrame y todos sus componentes).
                        if (seleccion == 1){
-                            
                             System.exit(-1);
-                            
                        }
-                        
                     }
                     
                     // Si quedan más vidas:
                     else if(puntuacion.getVidas() > 0){
-                        
                         // Volvemos a ubicar a Pacman en su posición inicial
                         pacman.resetPosInicial();
                         
@@ -844,14 +774,11 @@ public class Tablero extends JPanel implements ActionListener{
             
                         // Se pasa al estado 3
                         estado = 3; 
-                        
                     }
                         
                     // Se detiene el timer.
                     timer.stop();
-                        
                 } 
-                    
             }
         }
         
@@ -943,7 +870,6 @@ public class Tablero extends JPanel implements ActionListener{
         
         // Llamada al método que chequea los movimientos válidos de Pinky en virtud de su posición en el mapa
         pinky.checkMov();
-
     }
     
     /**
@@ -955,7 +881,6 @@ public class Tablero extends JPanel implements ActionListener{
      * </ul>
      */
     public void pantallaVictoria(){
-       
         //Se pasa al estado 5.
        estado = 5;
        
@@ -965,7 +890,6 @@ public class Tablero extends JPanel implements ActionListener{
        
        // Si seleccionamos jugar de nuevo se realizan las siguientes acciones:
        if (seleccion == 0){
-           
             // Removemos todos los elementos del JPanel.
             this.removeAll();
             
@@ -1001,14 +925,11 @@ public class Tablero extends JPanel implements ActionListener{
             
             // Reseteamos las vidas al valor inicial
             puntuacion.setVidasReset();
-            
         }
        
        // Si seleccionamos "Salir", se cierra el juego (el JFrame y todos sus componentes).
        if (seleccion == 1){
-            
             System.exit(-1);
-            
        }
         
        // Se detiene el timer.
