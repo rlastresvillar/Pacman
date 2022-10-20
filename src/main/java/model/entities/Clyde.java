@@ -1,3 +1,4 @@
+package model.entities;
 import javax.swing.Timer;
 import java.util.Random;
 import java.awt.event.ActionListener;

@@ -1,4 +1,11 @@
 import javax.swing.*;
+
+import model.entities.Blinky;
+import model.entities.Clyde;
+import model.entities.Fantasma;
+import model.entities.Pacman;
+import model.entities.Pinky;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
