@@ -22,12 +22,12 @@ public class Clyde extends Fantasma implements ActionListener{
         super();
         
         // Rutas a las imágenes del fantasma Clyde
-        imagen_arriba = "imagenes/fantasmas/clyde/arriba.gif";
-        imagen_abajo = "imagenes/fantasmas/clyde/abajo.gif";
-        imagen_derecha = "imagenes/fantasmas/clyde/derecha.gif";
-        imagen_izquierda = "imagenes/fantasmas/clyde/izquierda.gif";
-        imagen_vulnerable = "imagenes/fantasmas/vulnerable/vulnerable.gif";
-        imagen_resucitando = "imagenes/fantasmas/vulnerable/vulnerable2.gif";
+        imagen_arriba = "/imagenes/fantasmas/clyde/arriba.gif";
+        imagen_abajo = "/imagenes/fantasmas/clyde/abajo.gif";
+        imagen_derecha = "/imagenes/fantasmas/clyde/derecha.gif";
+        imagen_izquierda = "/imagenes/fantasmas/clyde/izquierda.gif";
+        imagen_vulnerable = "/imagenes/fantasmas/vulnerable/vulnerable.gif";
+        imagen_resucitando = "/imagenes/fantasmas/vulnerable/vulnerable2.gif";
     
         // Inicialización del timer.
         timer = new Timer(3000,this);

@@ -160,7 +160,7 @@ public class Tablero extends JPanel implements ActionListener{
         // Si el estado del juego es 2, el juego está activo. Debemos seguir repintando los elementos del tablero.
         if(estado == 0){
             
-            ImageIcon ii = new ImageIcon(this.getClass().getResource("imagenes/fondo/pantalla_inicial.jpg"));
+            ImageIcon ii = new ImageIcon(this.getClass().getResource("/imagenes/fondo/pantalla_inicial.jpg"));
             pantalla_inicial = ii.getImage();
             g2d.drawImage(pantalla_inicial,0,0, this);
             
@@ -375,7 +375,7 @@ public class Tablero extends JPanel implements ActionListener{
                 add(celda[x][y]);
                 
                 // Y le establezo la imagen de fondo según el tipo de celda.
-                celda[x][y].setIcon(new ImageIcon("imagenes/celdas/" + contenidocelda + ".jpg"));
+                celda[x][y].setIcon(new ImageIcon(this.getClass().getResource("/imagenes/celdas/" + contenidocelda + ".jpg")));
                 
                 // Si el contenido de la celda es  distinto de 13,14,15 o 32, es intransitable.
                 // En este caso, debemos crear un rectángulo sobre ese JLabel y añadirlo al array de objetos

@@ -147,7 +147,7 @@ public class Puntuacion{
      * a toda la parte de la puntuación (parte derecha del JPanel).
      */
     public JLabel getLogoScore(){
-        ImageIcon ii = new ImageIcon(this.getClass().getResource("imagenes/fondo/derecha.jpg"));
+        ImageIcon ii = new ImageIcon(this.getClass().getResource("/imagenes/fondo/derecha.jpg"));
         logo_score.setBounds(588, 0, 300, 651);
         logo_score.setIcon(ii);
         return logo_score;

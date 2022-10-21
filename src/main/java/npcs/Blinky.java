@@ -28,12 +28,12 @@ public class Blinky extends Fantasma implements ActionListener{
         // Llamada al constructor de la superclase Fantasma
         super();
         
-        imagen_arriba = "imagenes/fantasmas/blinky/arriba.gif";
-        imagen_abajo = "imagenes/fantasmas/blinky/abajo.gif";
-        imagen_derecha = "imagenes/fantasmas/blinky/derecha.gif";
-        imagen_izquierda = "imagenes/fantasmas/blinky/izquierda.gif";
-        imagen_vulnerable = "imagenes/fantasmas/vulnerable/vulnerable.gif";
-        imagen_resucitando = "imagenes/fantasmas/vulnerable/vulnerable2.gif";
+        imagen_arriba = "/imagenes/fantasmas/blinky/arriba.gif";
+        imagen_abajo = "/imagenes/fantasmas/blinky/abajo.gif";
+        imagen_derecha = "/imagenes/fantasmas/blinky/derecha.gif";
+        imagen_izquierda = "/imagenes/fantasmas/blinky/izquierda.gif";
+        imagen_vulnerable = "/imagenes/fantasmas/vulnerable/vulnerable.gif";
+        imagen_resucitando = "/imagenes/fantasmas/vulnerable/vulnerable2.gif";
         
         // Inicializo el timer...
         timer = new Timer(3000,this);

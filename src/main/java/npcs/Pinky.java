@@ -29,12 +29,12 @@ public class Pinky extends Fantasma implements ActionListener{
         // Llamada al constructor de la superclase Fantasma
         super();
         
-        imagen_arriba = "imagenes/fantasmas/pinky/arriba.gif";
-        imagen_abajo = "imagenes/fantasmas/pinky/abajo.gif";
-        imagen_derecha = "imagenes/fantasmas/pinky/derecha.gif";
-        imagen_izquierda = "imagenes/fantasmas/pinky/izquierda.gif";
-        imagen_vulnerable = "imagenes/fantasmas/vulnerable/vulnerable.gif";
-        imagen_resucitando = "imagenes/fantasmas/vulnerable/vulnerable2.gif";
+        imagen_arriba = "/imagenes/fantasmas/pinky/arriba.gif";
+        imagen_abajo = "/imagenes/fantasmas/pinky/abajo.gif";
+        imagen_derecha = "/imagenes/fantasmas/pinky/derecha.gif";
+        imagen_izquierda = "/imagenes/fantasmas/pinky/izquierda.gif";
+        imagen_vulnerable = "/imagenes/fantasmas/vulnerable/vulnerable.gif";
+        imagen_resucitando = "/imagenes/fantasmas/vulnerable/vulnerable2.gif";
 
         // Inicializo el timer...
         timer = new Timer(3000,this);

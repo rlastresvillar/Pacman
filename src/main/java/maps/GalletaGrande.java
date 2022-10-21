@@ -20,7 +20,7 @@ public class GalletaGrande extends Galleta{
     public GalletaGrande(int x, int y){
         super(x,y);
         
-        ruta = "imagenes/galletas/grande.jpg";
+        ruta = "/imagenes/galletas/grande.jpg";
         
         ImageIcon ii = new ImageIcon(this.getClass().getResource(ruta));
         imagen = ii.getImage();

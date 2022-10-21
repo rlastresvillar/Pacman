@@ -13,10 +13,10 @@ import javax.swing.ImageIcon;
 public class Pacman{
     //Variables que contienen las rutas de las imágenes de Pacman para todas las direcciones en
     //las que se puede mover (arriba, abajo, derecha, izquierda).
-    private String pacman_arriba = "imagenes/pacman/arriba/pacman_arriba.gif";
-    private String pacman_abajo = "imagenes/pacman/abajo/pacman_abajo.gif";
-    private String pacman_der = "imagenes/pacman/derecha/pacman_der.gif";
-    private String pacman_izq = "imagenes/pacman/izquierda/pacman_izq.gif";
+    private String pacman_arriba = "/imagenes/pacman/arriba/pacman_arriba.gif";
+    private String pacman_abajo = "/imagenes/pacman/abajo/pacman_abajo.gif";
+    private String pacman_der = "/imagenes/pacman/derecha/pacman_der.gif";
+    private String pacman_izq = "/imagenes/pacman/izquierda/pacman_izq.gif";
     
     // Variables de desplazamiento en el eje x y en el eje y.
     // Las usaremos para determinar el desplazamiento de Pacman
