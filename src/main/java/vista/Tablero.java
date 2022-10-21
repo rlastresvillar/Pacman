@@ -1,16 +1,15 @@
 package vista;
 import javax.swing.*;
 
-import Puntuacion;
-import model.entities.Blinky;
-import model.entities.Clyde;
-import model.entities.Fantasma;
-import model.entities.Pacman;
-import model.entities.Pinky;
 import model.mapas.Galleta;
 import model.mapas.GalletaGrande;
 import model.mapas.GalletaPequena;
 import model.mapas.Mapa;
+import npcs.Blinky;
+import npcs.Clyde;
+import npcs.Fantasma;
+import npcs.Pacman;
+import npcs.Pinky;
 
 import java.awt.*;
 import java.awt.event.ActionListener;

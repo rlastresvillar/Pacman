@@ -1,48 +1,44 @@
-package model.entities;
+package npcs;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.Timer;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.util.Random;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 /**
- * Superclase de las clases Clyde, Blinky y Pinky.<br/><br/>
+ * Superclase de las clases Clyde, Blinky y Pinky.
  * Establece todos los campos y métodos comunes a los tres fantasmas.
  * @author Rubén Lastres Villar
  * @version 1.0 (15-05-2014)
  */
-public abstract class Fantasma
-{
+public abstract class Fantasma{
 
-    /** Contiene la imagen que se ha de mostrar del fantasma cuando se está desplazando hacia arriba. */
-    protected String imagen_arriba;
-    
-    /** Contiene la imagen que se ha de mostrar del fantasma cuando se está desplazando hacia abajo. */
-    protected String imagen_abajo;
-    
-    /** Contiene la imagen que se ha de mostrar del fantasma cuando se está desplazando hacia la derecha. */
-    protected String imagen_derecha;
-    
-    /** Contiene la imagen que se ha de mostrar del fantasma cuando se está desplazando hacia la izquierda. */
-    protected String imagen_izquierda;
-    
-    /** Contiene la imagen que se ha de mostrar del fantasma cuando está en modo vulnerable. */
-    protected String imagen_vulnerable;
-    
-    /** Contiene la imagen que se ha de mostrar del fantasma cuando está en modo vulnerable y a punto de volver a su estado normal. */
-    protected String imagen_resucitando;
-    
-    /** Puntuación que le otorga a Pacman el comer un fantasma */
+    // Puntuación que le otorga a Pacman el comer un fantasma
     private static final int PUNTOS = 100;
     
-    /** Ancho de la imagen del fantasma en pixeles */
-    public static final int WIDTH = 21;
+    // Ancho de la imagen del fantasma en pixeles
+    private static final int WIDTH = 21;
     
-    /** Alto de la imagen del fantasma en pixeles */
-    public static final int HEIGHT = 21;
+    // Alto de la imagen del fantasma en pixeles
+    private static final int HEIGHT = 21;
+    
+    // Contiene la imagen que se ha de mostrar del fantasma cuando se está desplazando hacia arriba.
+    protected String imagen_arriba;
+    
+    // Contiene la imagen que se ha de mostrar del fantasma cuando se está desplazando hacia abajo.
+    protected String imagen_abajo;
+    
+    // Contiene la imagen que se ha de mostrar del fantasma cuando se está desplazando hacia la derecha.
+    protected String imagen_derecha;
+    
+    // Contiene la imagen que se ha de mostrar del fantasma cuando se está desplazando hacia la izquierda.
+    protected String imagen_izquierda;
+    
+    // Contiene la imagen que se ha de mostrar del fantasma cuando está en modo vulnerable.
+    protected String imagen_vulnerable;
+    
+    // Contiene la imagen que se ha de mostrar del fantasma cuando está en modo vulnerable y a punto de volver a su estado normal.
+    protected String imagen_resucitando;
     
     /** Desplazamiento del fantasma en el eje X. */
     protected int dx;
@@ -80,10 +76,7 @@ public abstract class Fantasma
     
     /** Contiene la imágen del fantasma. */
     protected Image imagen;
-    
-    /** La velocidad del fantasma (los píxeles que se mueve en cada golpe de timer. */
-    private static final int VELOCIDAD = 1;
-    
+        
     /** Bandera que establece si el fantasma está colisionando con un muro o con otro fantasma hacia la derecha. */
     protected boolean bandera_der;
     
@@ -153,9 +146,9 @@ public abstract class Fantasma
     }
     
     /**
-     * El fantasma se mueve (actualiza sus coordenadas según los valores de las variables dx y dy) cada vez que este método es llamado.<br/><br/>
-     * Sus coordenadas se modificarán en cada golpe del Timer y lo hará según el desplazamiento que indiquen las variables dx y dy<br/><br/>
-     * Todas las banderas de colisión se setearán en false.<br/><br/>
+     * El fantasma se mueve (actualiza sus coordenadas según los valores de las variables dx y dy) cada vez que este método es llamado.
+     * Sus coordenadas se modificarán en cada golpe del Timer y lo hará según el desplazamiento que indiquen las variables dx y dy.
+     * Todas las banderas de colisión se setearán en false.
      * Por último, se reestablece el ArrayList de movimientos válidos a su estado inicial.
      */
     public void move(){
@@ -182,19 +175,17 @@ public abstract class Fantasma
     }
     
      /**
-     * Chequea si un movimiento del fantasma es válido o no. <br/><br/>
+     * Chequea si un movimiento del fantasma es válido o no.
      * Lo hace en tres pasos:
-     * <ul>
-     * <li>Comprueba si el siguiente movimiento que desea hacer el fantasma es un movimiento válido o no lo es.</li>
-     * <li>Comprueba si el fantasma ha colisionado contra un muro o contra otro fantasma. Si lo ha hecho se generará otro
-     * movimiento mediante una llamada al método generarMovimiento()</li>
-     * <li>Comprueba si el fantasma ha llegado a una celda de teletransporte; si lo ha hecho, se le ordena que se mueva
-     * en sentido opuesto</li>
-     * </ul>
+     * 		1. Comprueba si el siguiente movimiento que desea hacer el fantasma es un movimiento válido o no lo es.
+     * 		2. Comprueba si el fantasma ha colisionado contra un muro o contra otro fantasma. Si lo ha hecho se generará otro
+     * 		   movimiento mediante una llamada al método generarMovimiento().
+     * 		3. Comprueba si el fantasma ha llegado a una celda de teletransporte; si lo ha hecho, se le ordena que se mueva
+     * 		   en sentido opuesto.
      */
     public void checkMov(){
         
-        // ----------------------------------------------------------------------------------------------------------//
+        // ---------------------------- ¿ Movimiento válido ? ----------------------------------//
         // ----------------------------------------------------------------------------------------------------------//
         // Se comprueba si el siguiente movimiento que quiere realizar el fantasma es válido o no. Si es válido, lo realizará;
         // si no lo es simplemente no hará nada.
@@ -203,11 +194,11 @@ public abstract class Fantasma
             // Movimiento inválido. No actualizamos dx ni dy y el fantasma sigue moviéndose en la dirección previa.
             // Estamos avanzando en una dirección, se crean un nuevo movimiento y no se puede realizar porque hay un muro hacia donde se quiere mover.
             
-        }else if(bandera_izq == false && siguiente_x == -1 && siguiente_y == 0){
-            
+        } else if (bandera_izq == false && siguiente_x == -1 && siguiente_y == 0){      
+        	
             //Cuando hacia la izquierda haya un camino, ejecutará el movimiento.
             dx = siguiente_x;
-            dy = siguiente_y;
+            dy = siguiente_y;    
             
         }
         
@@ -249,10 +240,8 @@ public abstract class Fantasma
             dy = siguiente_y;
             
         }
-        // ----------------------------------------------------------------------------------------------------------//
-        // ----------------------------------------------------------------------------------------------------------//
         
-        // ----------------------------------------------------------------------------------------------------------//
+        // ------------------------------------ ¿ Colisión contra el muro ? --------------------------------------//
         // ----------------------------------------------------------------------------------------------------------//
         // CHEQUEO COLISIÓN CONTRA MURO. Estos son los casos en los que el fantasma colisiona contra un muro.
         // Se comprueba en que dirección se movía cuando ha colisionado y se hace una llamada al método
@@ -285,10 +274,8 @@ public abstract class Fantasma
         if(contador > 0){
            generarMovimiento(); 
         }
-        // ----------------------------------------------------------------------------------------------------------//
-        // ----------------------------------------------------------------------------------------------------------//
         
-        // ----------------------------------------------------------------------------------------------------------//
+        // --------------------------------------- ¿ Celda de teletransporte ? ------------------------------------//
         // ----------------------------------------------------------------------------------------------------------//
         // Se comprueba si el fantasma ha llegado a una celda de teletransporte. Si es así, se mueve en la dirección opuesta.
         if(bandera_teleport_i == true){
@@ -300,8 +287,6 @@ public abstract class Fantasma
             siguiente_x = -1;
             siguiente_y = 0;
         }
-        // ----------------------------------------------------------------------------------------------------------//
-        // ----------------------------------------------------------------------------------------------------------//
         
         // Le decimos al fantasma que se mueva.
         move();
@@ -350,7 +335,7 @@ public abstract class Fantasma
     }
     
     /**
-     * Devuelve la imágen del fantasma para que la vista lo pueda pintar en el JPanel.<br/><br/>
+     * Devuelve la imágen del fantasma para que la vista lo pueda pintar en el JPanel.
      * Dependiendo de la dirección en la que se esté desplazando el fantasma, se devolverá una imagen u otra. 
      * Cuando la bandera de vulnerabilidad del fantasma está seteada como true, se devolverá una imagen común a todos los fantasmas. 
      * Si además de estar la bandera de vulnerabilidad seteada en true, la bandera de resucitando también lo está, se mostrará
@@ -482,15 +467,13 @@ public abstract class Fantasma
     }
     
     /**
-     * Método para modificar la bandera que le dice al fantasma si está en modo vulnerable o en modo normal.<br/><br/>
+     * Método para modificar la bandera que le dice al fantasma si está en modo vulnerable o en modo normal.
      * Este método será llamado para poner a los fantasmas en modo vulnerable, y para que se haga correctamente se realizan
      * las siguientes acciones:
-     * <ul>
-     * <li>Setear la bandera vulnerable como true.</li>
-     * <li>Setear la bandera resucitando como false.</li>
-     * <li>Resetear el contador de vulnerabilidad.</li>
-     * <li>Detener y poner de nuevo en marcha el timer, para que la vulnerabilidad dure dos ciclos completos.</li>
-     * </ul>
+     * 		1. Setear la bandera vulnerable como true.
+     * 		2. Setear la bandera resucitando como false.
+     * 		3. Resetear el contador de vulnerabilidad.
+     * 		4. Detener y poner de nuevo en marcha el timer, para que la vulnerabilidad dure dos ciclos completos.
      * @param boolean Un valor booleano que establece la bandera de vulnerabilidad del fantasma en true o false.
      */
     public void setVulnerable(boolean b){

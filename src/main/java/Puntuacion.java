@@ -2,19 +2,16 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.ImageIcon;
-import java.awt.AlphaComposite;
 
 /**
  * Implementa la puntuación del juego y las vidas que le restan al jugador.
  * @author Rubén Lastres Villar
  * @version 1.0 (15-05-2014)
  */
-public class Puntuacion
-{
-    // Constante que establece la puntuación inicial de cada partida (que será 0)
+public class Puntuacion{
     private static final int PUNTUACION = 0;
     
-    /** Varible entera que guardará la puntuación del juego.*/
+    // Varible que guardará la puntuación del juego.
     private int i_puntuacion;
     
     // Variable de tipo String, para guardar la puntuación en una cadena de caracteres.
@@ -51,9 +48,7 @@ public class Puntuacion
      * <li> Se instancian los JLabels que mostrarán la información en el controlador-vista.</li>
      * </ul>
      */
-    public Puntuacion()
-    {
-        
+    public Puntuacion(int h){    
         // Cada vez que se inicia una partida, la puntuación es 0
         i_puntuacion = PUNTUACION;
         
@@ -65,8 +60,7 @@ public class Puntuacion
         puntuacion = new JLabel();
         puntuacion_titulo = new JLabel();
         puntuacion_vidas = new JLabel();
-        cartel_empezar = new JLabel();
-        
+        cartel_empezar = new JLabel();  
     }
     
     /**
@@ -74,9 +68,7 @@ public class Puntuacion
      * @param int Entero que se recibe desde el controlador para actualizar la puntuación del juego. 
      */
     public void setPuntuacion(int puntuacion){
-        
-        i_puntuacion += puntuacion;
-        
+        i_puntuacion += puntuacion;   
     }   
     
     /**
@@ -92,10 +84,8 @@ public class Puntuacion
      * Cuando Pacman impacta contra un fantasma, este método es invocado restando una vida al número de vidas actual.
      * @param int Entero que se recibe desde el controlador para actualizar la puntuación del juego. 
      */
-    public void pierdeVida(){
-        
-        this.vidas --;
-        
+    public void pierdeVida(){   
+        this.vidas --;  
     }  
     
     /**
@@ -116,14 +106,12 @@ public class Puntuacion
      * Devuelve un JLabel con el logo "SCORE" para poder pintarlo en el juego.
      * @return Devuelve el JLabel que contiene la palabra "SCORE".
      */
-    public JLabel getPuntuacionTitulo(){
-        
+    public JLabel getPuntuacionTitulo(){ 
         puntuacion_titulo.setBounds(645, 90, 100, 25);
         puntuacion_titulo.setText("SCORE");
         puntuacion_titulo.setForeground(Color.WHITE);
         puntuacion_titulo.setFont(new Font("Verdana", 0, 26));
-        return puntuacion_titulo;
-        
+        return puntuacion_titulo;  
     }
     
     /**
@@ -131,7 +119,6 @@ public class Puntuacion
      * @return Devuelve el JLabel que contiene la puntuación en formato String.
      */
     public JLabel getPuntuacion(){
-        
         // Convierto la puntuacion en formato entero a formato String
         // para poder establecerlo como contenido del JLabel.
         s_puntuacion = Integer.toString(i_puntuacion);
@@ -139,8 +126,7 @@ public class Puntuacion
         puntuacion.setText(s_puntuacion);
         puntuacion.setForeground(Color.WHITE);
         puntuacion.setFont(new Font("Verdana", 0, 26));
-        return puntuacion;
-        
+        return puntuacion; 
     }
     
     /**
@@ -148,13 +134,11 @@ public class Puntuacion
      * @return Devuelve el JLabel que contiene el número de vidas restantes de Pacman
      */
     public JLabel getPuntuacionVidas(){
-        
         puntuacion_vidas.setBounds(775, 90, 100, 25);
         puntuacion_vidas.setText(vidas + "UP");
         puntuacion_vidas.setForeground(Color.WHITE);
         puntuacion_vidas.setFont(new Font("Verdana", 0, 26));
-        return puntuacion_vidas;
-        
+        return puntuacion_vidas;  
     }
     
     /**
@@ -163,12 +147,10 @@ public class Puntuacion
      * a toda la parte de la puntuación (parte derecha del JPanel).
      */
     public JLabel getLogoScore(){
-        
         ImageIcon ii = new ImageIcon(this.getClass().getResource("imagenes/fondo/derecha.jpg"));
         logo_score.setBounds(588, 0, 300, 651);
         logo_score.setIcon(ii);
         return logo_score;
-        
     }
     
     /**
@@ -183,11 +165,9 @@ public class Puntuacion
      */
     public JLabel getCartelEmpezar(String texto){
         cartel_empezar.setBounds(623, 280, 250, 25);
-        //cartel_empezar.setHorizontalAlignment(JLabel.CENTER);
         cartel_empezar.setText(texto);
         cartel_empezar.setForeground(Color.RED);
         cartel_empezar.setFont(new Font("Verdana", 0, 20));
         return cartel_empezar;
     }
-    
 }

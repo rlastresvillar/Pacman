@@ -7,9 +7,7 @@ import javax.swing.ImageIcon;
  * @author Rubén Lastres Villar
  * @version 1.0 (15-05-2014)
  */
-public class GalletaPequena extends Galleta
-{
-    
+public class GalletaPequena extends Galleta{ 
     /**
      * Constructor de la clase.<br/><br/>
      * Recibe como parámetros, a la hora de ser creada una instancia, las coordenadas X e Y

@@ -1,30 +1,27 @@
-package model.entities;
+package npcs;
 import javax.swing.Timer;
 import java.util.Random;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 /**
- * Clase modelo del fantasma Clyde, que hereda de la superclase Fantasmas<br/><br/>
- * Se implementan todas las características distintivas de Clyde.<br
+ * Clase modelo del fantasma Clyde, que hereda de la superclase Fantasmas
+ * Se implementan todas las características distintivas de Clyde.
  * @author Rubén Lastres Villar
  * @version 1.0 (15-05-2014)
  */
 public class Clyde extends Fantasma implements ActionListener{
-    
-    
+      
     /**
      * Se definen las rutas de las diferentes imágenes que representan a Clyde. 
-     * Serán 4 objetos Image (una por cada dirección de movimiento de Clyde) y las imágenes de vulnerabilidad.<br/><br/>
+     * Serán 4 objetos Image (una por cada dirección de movimiento de Clyde) y las imágenes de vulnerabilidad.
      * También se establece la posición inicial de Clyde y se crea y arranca el timer.
      */
-    public Clyde(){
-        
+    public Clyde(){     
         // Llamada al constructor de la superclase Fantasma
         super();
         
-        // Imágenes del fantasma Clyde
+        // Rutas a las imágenes del fantasma Clyde
         imagen_arriba = "imagenes/fantasmas/clyde/arriba.gif";
         imagen_abajo = "imagenes/fantasmas/clyde/abajo.gif";
         imagen_derecha = "imagenes/fantasmas/clyde/derecha.gif";
@@ -32,18 +29,16 @@ public class Clyde extends Fantasma implements ActionListener{
         imagen_vulnerable = "imagenes/fantasmas/vulnerable/vulnerable.gif";
         imagen_resucitando = "imagenes/fantasmas/vulnerable/vulnerable2.gif";
     
-        // Inicializo el timer...
+        // Inicialización del timer.
         timer = new Timer(3000,this);
-        // y lo pongo a andar.
-        timer.start();
-        
+        timer.start();    
     }
     
     /**
      * Método que calcula un nuevo movimiento aleatorio de Clyde en cada golpe de timer. 
      * Para hacer esto, se crea un número aleatorio entre 0 y 1 y se le asigna un signo positivo o negativo, 
      * para generar uno de entre tres posibles valores (0, 1 y -1), ya que los movimientos sólo pueden adoptar
-     * uno de estos tres valores.<br/><br/>
+     * uno de estos tres valores.
      * Cuando se detecta que Pacman ha comido una galleta grande, el fantasma entra en modo de vulnerabilidad 
      * durante 6 segundos (dos golpes de timer, que se cuentan gracias a la variable tiempo_vulnerable,
      * que ejerce de contador). Cuando entra en modo de vulnerabilidad, al primer golpe de timer siguiente
