@@ -156,10 +156,8 @@ public class Puntuacion{
     /**
      * Devuelve un JLabel cuyo texto es un mensaje indicativo al jugador con indicaciones sobre el uso del juego.<br/>
      * Por ejemplo, puede mostrar los mensajes:
-     * <ul>
-     * <li>"Pulsa 'S' para empezar."</li>
-     * <li>"Pulsa 'P' para pausar.</li>
-     * </ul>
+     * "Pulsa 'S' para empezar."
+     * "Pulsa 'P' para pausar."
      * @param String - La cadena de caracteres que se quiere mostrar dentro del JLabel.
      * @return Devuelve un JLabel con un texto indicando al jugador las opciones que puede realizar.
      */
