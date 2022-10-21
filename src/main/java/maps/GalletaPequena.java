@@ -21,7 +21,7 @@ public class GalletaPequena extends Galleta{
         super(x,y);
         
         // La ruta de la imagen de la galleta
-        ruta = "imagenes/galletas/pequena.jpg";
+        ruta = "src/main/resources/imagenes/galletas/pequena.jpg";
         
         // Se guarda la imagen de la galleta en la variable imagen
         ImageIcon ii = new ImageIcon(this.getClass().getResource(ruta));

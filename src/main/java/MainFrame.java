@@ -9,6 +9,9 @@ public class MainFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
 	
 	public MainFrame() {  
+        // Añadir tablero al frame
+        this.add(new Tablero());
+        
 		// Propiedades del frame.
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setLayout(new FlowLayout());
@@ -21,8 +24,5 @@ public class MainFrame extends JFrame{
         this.setResizable(false);
         this.setFocusable(false);
         this.setVisible(true);
-
-        // Añadir tablero al frame
-        this.add(new Tablero());
 	}
 }
