@@ -48,7 +48,7 @@ public class Puntuacion{
      * <li> Se instancian los JLabels que mostrarán la información en el controlador-vista.</li>
      * </ul>
      */
-    public Puntuacion(int h){    
+    public Puntuacion(){    
         // Cada vez que se inicia una partida, la puntuación es 0
         i_puntuacion = PUNTUACION;
         

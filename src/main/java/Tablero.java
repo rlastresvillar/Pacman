@@ -1,10 +1,10 @@
-package vista;
+
 import javax.swing.*;
 
-import model.mapas.Galleta;
-import model.mapas.GalletaGrande;
-import model.mapas.GalletaPequena;
-import model.mapas.Mapa;
+import maps.Galleta;
+import maps.GalletaGrande;
+import maps.GalletaPequena;
+import maps.Mapa;
 import npcs.Blinky;
 import npcs.Clyde;
 import npcs.Fantasma;

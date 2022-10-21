@@ -1,8 +1,5 @@
 package npcs;
-import java.awt.Image;
-import java.awt.Rectangle;
-import javax.swing.ImageIcon;
-import java.util.ArrayList;
+
 import java.util.Random;
 import javax.swing.Timer;
 import java.awt.event.ActionListener;

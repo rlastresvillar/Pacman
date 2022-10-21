@@ -1,4 +1,4 @@
-package model.mapas;
+package maps;
 /**
  * Define una matriz de enteros que representa un mapa que sirve de base para el juego de Pacman
  * Cada elemento de la matriz es una casilla del mapa. 
@@ -6,6 +6,9 @@ package model.mapas;
  * @version 1.0 (15-05-2014)
  */
 public class Mapa{
+    private static final int ANCHO_CELDA = 21;
+    private static final int ALTO_CELDA = 21;
+	
     // Matriz que representa el mapa del juego.
     private int matriz[][] = {
                         {9,2,2,2,2,2,2,2,2,10,13,13,13,0,34,1,13,13,13,9,2,2,2,2,30,31,2,2,2,2,10},
@@ -36,9 +39,6 @@ public class Mapa{
                         {0,14,11,2,12,14,22,18,14,1,13,13,13,0,13,1,13,13,13,0,14,22,18,14,20,17,14,22,18,14,1},
                         {0,14,14,15,14,14,14,14,14,1,13,13,13,0,13,1,13,13,13,0,14,14,14,15,8,19,14,14,14,14,1},
                         {11,3,3,3,3,3,3,3,3,12,13,13,13,0,33,1,13,13,13,11,3,3,3,3,28,29,3,3,3,3,12}};
-
-    private static final int ANCHO_CELDA = 21;
-    private static final int ALTO_CELDA = 21;
      
     /**
      * Constructor vacío.
