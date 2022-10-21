@@ -5,4 +5,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Pacman</name>
   <description>Desarrollo en Java del clásico videojuego Pacman</description>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
 </project>
